@@ -11,6 +11,7 @@ from ..builder import BACKBONES
 from ..utils import ResLayer
 
 
+'''ResNet18和ResNet34用到的残差块'''
 class BasicBlock(nn.Module):
     expansion = 1
 
@@ -92,7 +93,7 @@ class BasicBlock(nn.Module):
 
         return out
 
-
+'''ResNet50用到的残差块'''
 class Bottleneck(nn.Module):
     expansion = 4
 

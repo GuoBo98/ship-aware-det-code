@@ -18,7 +18,7 @@ def makeplot(rs, ps, outDir, class_name, iou_type):
         np.array([.50, .39, .64]),
         np.array([1, .6, 0])
     ])
-    areaNames = ['allarea', 'small', 'medium', 'large']
+    areaNames = ['allarea']
     types = ['C75', 'C50', 'Loc', 'Sim', 'Oth', 'BG', 'FN']
     for i in range(len(areaNames)):
         area_ps = ps[..., i, 0]
@@ -122,7 +122,7 @@ def analyze_results(res_file, ann_file, res_types, out_dir):
         cocoEval = COCOeval(
             copy.deepcopy(cocoGt), copy.deepcopy(cocoDt), iou_type)
         cocoEval.params.imgIds = imgIds
-        cocoEval.params.iouThrs = [.75, .5, .1]
+        cocoEval.params.iouThrs = [.75, .50, .30]
         cocoEval.params.maxDets = [100]
         cocoEval.evaluate()
         cocoEval.accumulate()
